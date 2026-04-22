@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care - My Profile</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        :root {
+            --profile-gradient: linear-gradient(135deg, #00666e 0%, #1d8089 100%);
+        }
+
+        .profile-header {
+            background: var(--profile-gradient);
+            border-radius: 2rem;
+            padding: 4rem 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: -4rem;
+        }
+
+        .profile-header-blur {
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(100px);
+            border-radius: 50%;
+        }
+
+        .settings-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .form-control-premium {
+            background-color: var(--surface-container-low);
+            border: 2px solid transparent;
+            padding: 0.875rem 1.25rem;
+            border-radius: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .form-control-premium:focus {
+            background-color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0, 102, 110, 0.1);
+        }
+
+        .history-card {
+            border-radius: 1.25rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .history-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .status-msg {
+            display: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body class="bg-surface">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md fixed-top custom-nav shadow-sm border-0">
+        <div class="container-fluid max-w-custom">
+            <a class="navbar-brand brand-text" href="index.html">Kindred Care</a>
+            <div class="ms-auto d-flex align-items-center gap-3">
+                <a href="index.html" class="btn btn-sm btn-primary-custom rounded-pill px-4 fw-bold">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container max-w-custom pt-custom">
+        <!-- Header Section -->
+        <header class="profile-header shadow-lg">
+            <div class="profile-header-blur"></div>
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h1 class="display-5 fw-extrabold mb-2" id="profileName">Your Account</h1>
+                    <p class="lead opacity-75 mb-0">Manage your credentials and view your pet's journey with us.</p>
+                </div>
+                <div class="col-md-5 text-md-end mt-4 mt-md-0">
+                    <div class="d-inline-flex align-items-center gap-3 bg-white bg-opacity-10 p-3 rounded-4 backdrop-blur">
+                        <div class="text-start">
+                            <p class="small opacity-75 mb-0">Security Status</p>
+                            <p class="fw-bold mb-0 text-success-light">Active & Secure</p>
+                        </div>
+                        <span class="material-symbols-outlined fs-2">security</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="settings-container px-3">
+            <div class="row g-4">
+                <!-- Settings Forms -->
+                <div class="col-lg-5">
+                    
+                    <!-- Form 1: Email -->
+                    <div class="glass-card p-4">
+                        <h2 class="h5 fw-bold mb-4 d-flex align-items-center gap-2">
+                            <span class="material-symbols-outlined text-primary-custom">alternate_email</span>
+                            Update Email Address
+                        </h2>
+                        <form id="emailForm">
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-muted text-uppercase mb-2">New Email Address</label>
+                                <input type="email" id="updateEmail" class="form-control form-control-premium" placeholder="Enter new email" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom w-100 rounded-pill py-2 fw-bold shadow-sm">UPDATE EMAIL</button>
+                        </form>
+                        <div id="emailStatus" class="status-msg"></div>
+                    </div>
+
+                    <!-- Form 2: Password -->
+                    <div class="glass-card p-4">
+                        <h2 class="h5 fw-bold mb-4 d-flex align-items-center gap-2">
+                            <span class="material-symbols-outlined text-primary-custom">lock</span>
+                            Change Password
+                        </h2>
+                        <form id="passwordForm">
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-muted text-uppercase mb-2">New Password</label>
+                                <input type="password" id="updatePassword" class="form-control form-control-premium" placeholder="Enter new password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-muted text-uppercase mb-2">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" class="form-control form-control-premium" placeholder="Confirm password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom w-100 rounded-pill py-2 fw-bold shadow-sm">CHANGE PASSWORD</button>
+                        </form>
+                        <div id="passwordStatus" class="status-msg"></div>
+                    </div>
+
+                </div>
+
+                <!-- History Columns -->
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <!-- Appointments -->
+                        <div class="col-12">
+                            <div class="glass-card p-4 h-100 mb-0">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h2 class="h5 fw-bold mb-0 d-flex align-items-center gap-2">
+                                        <span class="material-symbols-outlined text-primary-custom">calendar_month</span>
+                                        Upcoming Appointments
+                                    </h2>
+                                    <a href="booking.html" class="btn btn-sm btn-link text-primary-custom text-decoration-none p-0 fw-bold">New Booking</a>
+                                </div>
+                                <div id="myBookingsList" class="history-list d-flex flex-column gap-3">
+                                    <p class="text-muted text-center py-4">Loading your schedule...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Orders -->
+                        <div class="col-12">
+                            <div class="glass-card p-4 h-100 mb-0">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h2 class="h5 fw-bold mb-0 d-flex align-items-center gap-2">
+                                        <span class="material-symbols-outlined text-primary-custom">shopping_bag</span>
+                                        Recent Orders
+                                    </h2>
+                                    <a href="store.html" class="btn btn-sm btn-link text-primary-custom text-decoration-none p-0 fw-bold">Store</a>
+                                </div>
+                                <div id="myOrdersList" class="history-list d-flex flex-column gap-3">
+                                    <p class="text-muted text-center py-4">Loading purchase history...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-5 pb-5 text-center text-muted small">
+        <p>&copy; 2024 Kindred Care Pet Center • Premium Service for Exceptional Companions</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('petcare_user') || '{}');
+            if(user.name) {
+                document.getElementById('profileName').textContent = user.name + "'s Account";
+            }
+        });
+
+        // Handler helper
+        async function updateProfileSection(data, statusId) {
+            const statusMsg = document.getElementById(statusId);
+            try {
+                statusMsg.style.display = 'none';
+                const token = localStorage.getItem('petcare_token');
+                const response = await fetch('/api/auth/profile', {
+                    method: 'PUT',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const resData = await response.json();
+                if (resData.success) {
+                    statusMsg.textContent = 'Updated successfully!';
+                    statusMsg.className = 'status-msg bg-success bg-opacity-10 text-success d-block';
+                    if (data.email) {
+                        const user = JSON.parse(localStorage.getItem('petcare_user'));
+                        user.email = data.email;
+                        localStorage.setItem('petcare_user', JSON.stringify(user));
+                    }
+                    setTimeout(() => statusMsg.style.display = 'none', 3000);
+                } else {
+                    statusMsg.textContent = resData.message;
+                    statusMsg.className = 'status-msg bg-danger bg-opacity-10 text-danger d-block';
+                }
+            } catch (err) {
+                statusMsg.textContent = 'Connection failed.';
+                statusMsg.className = 'status-msg bg-danger bg-opacity-10 text-danger d-block';
+            }
+        }
+
+        document.getElementById('emailForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            updateProfileSection({ email: document.getElementById('updateEmail').value }, 'emailStatus');
+        });
+
+        document.getElementById('passwordForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const password = document.getElementById('updatePassword').value;
+            const confirm = document.getElementById('confirmPassword').value;
+            if (password !== confirm) {
+                const status = document.getElementById('passwordStatus');
+                status.textContent = 'Passwords do not match!';
+                status.className = 'status-msg bg-danger bg-opacity-10 text-danger d-block';
+                return;
+            }
+            updateProfileSection({ password }, 'passwordStatus');
+        });
+    </script>
+</body>
+
+</html>

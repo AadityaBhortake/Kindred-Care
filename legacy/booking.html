@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Grooming Session - Kindred Care</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md fixed-top custom-nav shadow-sm">
+        <div class="container-fluid max-w-custom">
+            <a class="navbar-brand brand-text" href="index.html">Kindred Care</a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center flex-grow-1" id="navbarContent">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+                    <li class="nav-item"><a class="nav-link active-link" href="booking.html">Booking</a></li>
+                </ul>
+            </div>
+
+            <!-- Auth nav — toggled by JS -->
+            <div class="d-flex align-items-center gap-3 d-none d-md-flex" id="navAuth">
+
+              <!-- Logged OUT -->
+              <div id="navGuest" style="display:flex;align-items:center;gap:12px">
+                <a href="/login.html"
+                   class="btn btn-sm fw-semibold text-primary-custom text-decoration-none"
+                   style="font-family:'Plus Jakarta Sans',sans-serif">Sign In</a>
+                <a href="/register.html"
+                   class="btn btn-sm btn-primary-custom rounded-pill px-3 py-2 fw-bold"
+                   style="font-family:'Plus Jakarta Sans',sans-serif">Get Started</a>
+              </div>
+
+              <!-- Logged IN -->
+              <div id="navUser" style="display:none;align-items:center;gap:12px">
+                <a href="checkout.html" class="btn icon-btn rounded-circle d-flex align-items-center justify-content-center position-relative text-decoration-none hover-bg-surface">
+                    <span class="material-symbols-outlined text-primary-custom">shopping_cart</span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCountBadge" style="font-size: 0.6rem;">0</span>
+                </a>
+                <div class="ps-3 ms-1 border-start d-flex align-items-center gap-2">
+                  <div style="width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.875rem;font-family:'Plus Jakarta Sans',sans-serif" id="navAvatar">U</div>
+                  <div style="line-height:1.2">
+                    <div style="font-size:.82rem;font-weight:700;color:var(--on-surface)" id="navUserName">User</div>
+                    <div class="d-flex gap-2">
+                        <a href="profile.html" style="text-decoration:none;font-size:.72rem;color:var(--primary);font-weight:600;cursor:pointer">Settings</a>
+                        <button onclick="logout()" style="background:none;border:none;padding:0;font-size:.72rem;color:var(--danger);font-weight:600;cursor:pointer">Sign out</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container-fluid max-w-custom pt-custom pb-5">
+        <header class="mb-5">
+            <h1 class="display-5 fw-bold text-dark mb-3">Book a Grooming Session</h1>
+            <p class="lead text-muted max-w-2xl">Tailored pampering for your beloved companions in a serene,
+                atelier-inspired environment.</p>
+        </header>
+
+        <div class="row g-5">
+            <!-- Booking Steps -->
+            <div class="col-lg-8 d-flex flex-column gap-5">
+
+                <!-- 1. Pet Selection -->
+                <section>
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span
+                            class="bg-primary-custom text-white rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                            style="width: 40px; height: 40px;">1</span>
+                        <h2 class="h3 fw-bold mb-0">Select Your Companion</h2>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="card border-primary border-2 shadow-sm rounded-4 h-100 p-3"
+                                style="cursor:pointer;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg53R6rpxeqENEoAIPUNHiwSi53m3ucIRQ-ruqf7F_8TQ6-DGQyHo1ZMJ-3UzCP7vykoC33M43oaE69jHSop12QRXNlgq1HCX7p83OXkUxBYnzpqaznDhSamsaTqkZ8HW6oQ_qo5GH0_VIFVuNBu8WxjhFJCsqnkGKYtkcZGVlE7Sy_AnTXkPbjlh_NUEkGr9IcPSy_SSKUOM8KQmyGiIwscysTMtidJwwFDiMFsFMtCvJNC2YFvGslVkV7YaCjKTH6jaLScXCFGQ"
+                                        class="rounded-circle object-fit-cover" style="width:80px;height:80px;" alt="">
+                                    <div>
+                                        <h3 class="h5 fw-bold mb-0">Luna</h3>
+                                        <p class="small text-muted mb-1">Golden Retriever • 3 yrs</p>
+                                        <span
+                                            class="badge bg-secondary-light text-secondary-dark rounded-pill fw-bold text-uppercase">Selected</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card border-0 bg-surface-low hover-shadow rounded-4 h-100 p-3"
+                                style="cursor:pointer;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-KlqEMTT-HUPff7j1SXhQxcsS5xTdsAe0rlKAwddX6ckaWZ90HVdWHDoIBdo0tF2Rlg90CKk93IYPfgz8PmZYnyDfL_bsLuOt7D4zerLpeaNl1wrQfgAbUxQCKKUbdtqBXL79hesjsuSVl2cSds5I2vgnajr24fNmH9UVcYVIBN8KU3aChR3ekDKM3QPwmqgck7cFOIn_R4OUeqRI4lQL5X-bugmBsH9k1CjgWe_vwhh7XmsgfbOn2tv1ZJ3x3xDIAY30xjiZefk"
+                                        class="rounded-circle object-fit-cover opacity-75"
+                                        style="width:80px;height:80px;" alt="">
+                                    <div>
+                                        <h3 class="h5 fw-bold mb-0 text-muted">Oliver</h3>
+                                        <p class="small text-muted mb-0">Persian Cat • 5 yrs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Service Selection -->
+                <section>
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span
+                            class="bg-primary-custom text-white rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                            style="width: 40px; height: 40px;">2</span>
+                        <h2 class="h3 fw-bold mb-0">Choose a Service</h2>
+                    </div>
+
+                    <div class="d-flex flex-column gap-4">
+                        <!-- Service 1 -->
+                        <div class="card border border-2 border-transparent hover-border-primary shadow-sm rounded-4 overflow-hidden transition-all"
+                            style="cursor:pointer;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpevsfHciwov5L3a7X-SvXB3i9Ulu7aUdzHMHpyjG_Pv7jKu38vjA24g1CFk3F6ftmmrJGtRRGgCKt4a3vFpxzhFDKx7uAmikxSOeCVZSpWxHl6MJvXxKbhngi6e6UOjNB_3-7rDZz6ZbblWJpadcqrXI8U4WUUEZaaudZPOHca59ea46296UBU14Co7xRf93YHyOu0ENR746LnUy50yjxZ-3jRCihX0FSinqnzkbMhoudB348DBYZSLkOZ35qcQgOwTtiEA9f23I"
+                                        class="img-fluid object-fit-cover h-100" alt="">
+                                </div>
+                                <div class="col-md-8 p-4 d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div>
+                                            <h3 class="h4 fw-bold mb-2">The Royal Treatment</h3>
+                                            <p class="text-muted small mb-2">Our signature full grooming experience.
+                                                Includes aromatherapy bath, breed-specific styling, ear cleaning, and a
+                                                refreshing scent finish.</p>
+                                            <div class="d-flex align-items-center gap-2 text-tertiary fw-bold small">
+                                                <span class="material-symbols-outlined fs-6">schedule</span> 120 mins
+                                            </div>
+                                        </div>
+                                        <div class="text-end ms-3">
+                                            <h4 class="h3 fw-bolder text-primary-custom mb-2">₹2,499</h4>
+                                            <span class="badge bg-primary-custom rounded-pill">Selected</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="card border border-2 border-transparent hover-border-primary shadow-sm rounded-4 overflow-hidden transition-all"
+                            style="cursor:pointer;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuASJ5cRgBAyjSC6Ytsw2L33yWcnDoPXoDTnQvzKhTrw-8yDgT9yo6eWdPvQCESQjpnalDsANoEY4FOLNFQfyefhxIznzKdslfDwzVKAtTxd_wUbV8dk_H3HbofUTkb70wzVD6vi5_yg1aH3Tlc0k9-B3dWbbzZGCxlOmfpBd3XwFWd73_FYjA7Wj3WpfIFCKWf622Sm9oD7XY1rQVm3hZ6YonSa0pe6aNY3yULA9ELXV-EELm_EqOJ3txYGLpasln4VdJXAVd_9N2U"
+                                        class="img-fluid object-fit-cover h-100" alt="">
+                                </div>
+                                <div class="col-md-8 p-4 d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div>
+                                            <h3 class="h4 fw-bold text-dark mb-2">Splash & Scrub</h3>
+                                            <p class="text-muted small mb-2">The perfect maintenance session.
+                                                High-quality bath, blow-dry, and professional brush-out.</p>
+                                            <div class="d-flex align-items-center gap-2 text-muted fw-bold small">
+                                                <span class="material-symbols-outlined fs-6">schedule</span> 60 mins
+                                            </div>
+                                        </div>
+                                        <div class="text-end ms-3">
+                                            <h4 class="h3 fw-bolder text-dark mb-2">₹1,299</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="card border border-2 border-transparent hover-border-primary shadow-sm rounded-4 overflow-hidden transition-all"
+                            style="cursor:pointer;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuANo0BG-Pfr0e-b3JOQFc5h_wSXejZ5eHpZH9jwk1W0Icghf5HspeoWTgy4MCx18AT6c78iq1X4ajscjs30-lIWUdlxWQFZq9X9wKWHhmoSdzvbgrQdtg5vWV7fzS-UW373C5MeReyzFknyUrX0fonNB-o24USDWlscEhcc8dO3_ZGzi-yt18mRXNgsaf3JNlHU-AFEG3IQ4ithGSYhv9KfhT2zSZrAzfD__d12GokmZuOAzp-V2CVtcMwuAEBK64VJ_qxJSWjsCww"
+                                        class="img-fluid object-fit-cover h-100" alt="">
+                                </div>
+                                <div class="col-md-8 p-4 d-flex flex-column justify-content-between">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div>
+                                            <h3 class="h4 fw-bold text-dark mb-2">Paw-dicure</h3>
+                                            <p class="text-muted small mb-2">Essential nail clipping and paw pad care to
+                                                keep your pet walking comfortably.</p>
+                                            <div class="d-flex align-items-center gap-2 text-muted fw-bold small">
+                                                <span class="material-symbols-outlined fs-6">schedule</span> 20 mins
+                                            </div>
+                                        </div>
+                                        <div class="text-end ms-3">
+                                            <h4 class="h3 fw-bolder text-dark mb-2">₹599</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Date & Time -->
+                <section>
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span
+                            class="bg-primary-custom text-white rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                            style="width: 40px; height: 40px;">3</span>
+                        <h2 class="h3 fw-bold mb-0">Schedule Your Visit</h2>
+                    </div>
+
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <div class="row g-5">
+                            <div class="col-md-6 border-end">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h4 class="h5 fw-bold mb-0">December 2024</h4>
+                                    <div>
+                                        <button class="btn icon-btn rounded-circle"><span
+                                                class="material-symbols-outlined">chevron_left</span></button>
+                                        <button class="btn icon-btn rounded-circle"><span
+                                                class="material-symbols-outlined">chevron_right</span></button>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex justify-content-between text-muted fw-bold small text-center mb-2 px-2">
+                                    <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                                </div>
+                                <!-- Minimal calendar implementation -->
+                                <div class="d-flex flex-wrap text-center fw-bold">
+                                    <div class="p-2 w-14 text-muted"></div>
+                                    <div class="p-2 w-14 text-muted"></div>
+                                    <div class="p-2 w-14 text-muted"></div>
+                                    <div class="p-2 w-14">1</div>
+                                    <div class="p-2 w-14">2</div>
+                                    <div class="p-2 w-14">3</div>
+                                    <div class="p-2 w-14">4</div>
+                                    <div class="p-2 w-14">5</div>
+                                    <div class="p-2 w-14">6</div>
+                                    <div class="p-2 w-14">7</div>
+                                    <div class="p-2 w-14">8</div>
+                                    <div class="p-2 w-14">9</div>
+                                    <div class="p-2 w-14">10</div>
+                                    <div class="p-2 w-14"><span
+                                            class="bg-primary-custom text-white rounded-circle d-inline-block"
+                                            style="width:30px;height:30px;line-height:30px;">11</span></div>
+                                    <div class="p-2 w-14">12</div>
+                                    <div class="p-2 w-14">13</div>
+                                    <div class="p-2 w-14">14</div>
+                                    <div class="p-2 w-14">15</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="h5 fw-bold mb-4">Available Slots</h4>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <button class="btn btn-light bg-surface-low w-100 text-start py-3 rounded-3">
+                                            <div class="fw-bold fs-6">10:00 AM</div>
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-light bg-surface-low w-100 text-start py-3 rounded-3">
+                                            <div class="fw-bold fs-6">11:30 AM</div>
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-light bg-surface-low w-100 text-start py-3 rounded-3">
+                                            <div class="fw-bold fs-6">02:00 PM</div>
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-light bg-surface-low w-100 text-start py-3 rounded-3">
+                                            <div class="fw-bold fs-6">04:30 PM</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Booking Summary -->
+            <aside class="col-lg-4">
+                <div class="sticky-top" style="top: 100px;">
+                    <div class="card border-0 bg-surface-low rounded-4 p-4 shadow-sm mb-4">
+                        <h2 class="h4 fw-bold mb-4 d-flex align-items-center gap-2">
+                            <span class="material-symbols-outlined text-primary-custom">receipt_long</span>
+                            Booking Summary
+                        </h2>
+
+                        <div class="mb-4 border-bottom pb-4 border-light border-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <div>
+                                    <p class="small fw-bold text-muted text-uppercase mb-1"
+                                        style="letter-spacing: 1px;">Service</p>
+                                    <p class="fw-bold text-dark mb-0">The Royal Treatment</p>
+                                    <p class="small text-muted">Full Grooming + Spa</p>
+                                </div>
+                                <span class="fw-bold text-dark">₹2,499</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <div>
+                                    <p class="small fw-bold text-muted text-uppercase mb-1"
+                                        style="letter-spacing: 1px;">Companion</p>
+                                    <p class="fw-bold text-dark mb-0 d-flex align-items-center gap-2"><span
+                                            class="material-symbols-outlined fs-6 text-primary-custom">pets</span> Luna
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <p class="small fw-bold text-muted text-uppercase mb-1"
+                                        style="letter-spacing: 1px;">Schedule</p>
+                                    <p class="fw-bold text-dark mb-0 d-flex align-items-center gap-2"><span
+                                            class="material-symbols-outlined fs-6 text-primary-custom">event</span> Dec
+                                        11, 2024 • 11:30 AM</p>
+                                    <p class="small text-muted mt-1">With Stylist Marcus</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-2 text-muted fw-bold">
+                            <span>Subtotal</span>
+                            <span>₹2,499</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4 text-muted fw-bold">
+                            <span>GST (18%)</span>
+                            <span>₹450</span>
+                        </div>
+                        <div
+                            class="d-flex justify-content-between border-top pt-3 border-light border-2 fw-bolder fs-4 text-dark mb-4">
+                            <span>Total</span>
+                            <span>₹2,949</span>
+                        </div>
+
+                        <button id="confirmBookingBtn"
+                            class="btn btn-primary-custom w-100 rounded-pill py-3 fw-bold fs-6 shadow-sm d-flex justify-content-center align-items-center gap-2 text-uppercase"
+                            style="letter-spacing: 1px;">
+                            Confirm Booking <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                        <p class="small text-muted text-center mt-3 mb-0">By confirming, you agree to our <a href="#"
+                                class="text-primary-custom text-decoration-none fw-bold">Safety Policies</a> and <a
+                                href="#" class="text-primary-custom text-decoration-none fw-bold">Cancellation
+                                Terms</a>.</p>
+                    </div>
+
+                    <div
+                        class="bg-tertiary-light p-4 rounded-4 position-relative overflow-hidden list-group-item-action">
+                        <div class="position-relative z-2">
+                            <h4 class="text-tertiary-darker fw-bold fs-5 mb-2">Exclusive Offer</h4>
+                            <p class="text-tertiary small mb-0 fw-bold">Pre-book your next 3 sessions and get 15% off
+                                the total bundle!</p>
+                        </div>
+                        <span
+                            class="material-symbols-outlined position-absolute giant-icon end-0 bottom-0 text-tertiary opacity-25"
+                            style="font-size: 6rem; right: -20px; bottom: -20px; transform: rotate(15deg);">card_giftcard</span>
+                    </div>
+
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-custom pt-5 pb-4 mt-auto">
+        <div class="container-fluid max-w-custom">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
+                <div class="h4 fw-bold text-primary-custom mb-0">Kindred Care</div>
+                <ul class="list-inline mb-0 d-flex flex-wrap justify-content-center gap-3 gap-md-4">
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none footer-link">Privacy
+                            Policy</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none footer-link">Terms
+                            of Service</a></li>
+                    <li class="list-inline-item"><a href="#"
+                            class="text-muted text-decoration-none footer-link">Contact</a></li>
+                    <li class="list-inline-item"><a href="#"
+                            class="text-muted text-decoration-none footer-link">Instagram</a></li>
+                    <li class="list-inline-item"><a href="#"
+                            class="text-muted text-decoration-none footer-link">Support</a></li>
+                </ul>
+                <div class="text-muted small opacity-75 text-center text-md-end">
+                    &copy; 2024 Kindred Care Pet Center.<br>Every pet is a story.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

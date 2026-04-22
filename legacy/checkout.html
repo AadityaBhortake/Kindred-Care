@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care - Checkout</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md fixed-top custom-nav shadow-sm border-0">
+        <div class="container-fluid max-w-custom">
+            <a class="navbar-brand brand-text" href="index.html">Kindred Care</a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center flex-grow-1" id="navbarContent">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                </ul>
+            </div>
+
+            <div class="d-flex align-items-center gap-3 d-none d-md-flex" id="navAuth">
+              <div id="navGuest" style="display:flex;align-items:center;gap:12px">
+                <a href="/login.html" class="btn btn-sm fw-semibold text-primary-custom text-decoration-none">Sign In</a>
+                <a href="/register.html" class="btn btn-sm btn-primary-custom rounded-pill px-3 py-2 fw-bold">Get Started</a>
+              </div>
+              <div id="navUser" style="display:none;align-items:center;gap:12px">
+                <button class="btn icon-btn rounded-circle d-flex align-items-center justify-content-center position-relative">
+                    <span class="material-symbols-outlined text-primary-custom">shopping_cart</span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCountBadge" style="font-size: 0.6rem;">0</span>
+                </button>
+                <div class="ps-3 ms-1 border-start d-flex align-items-center gap-2">
+                  <div style="width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.875rem" id="navAvatar">U</div>
+                  <div style="line-height:1.2">
+                    <div style="font-size:.82rem;font-weight:700;color:var(--on-surface)" id="navUserName">User</div>
+                    <button onclick="logout()" style="background:none;border:none;padding:0;font-size:.72rem;color:var(--danger);font-weight:600;cursor:pointer">Sign out</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container-fluid max-w-custom pt-custom pb-5">
+        <header class="mb-5 border-bottom border-light border-2 pb-5">
+            <h1 class="display-5 fw-bold text-dark mb-3">Finalize your selection</h1>
+            <p class="lead text-muted max-w-custom-sm">Review your curated essentials for your companion's wellness
+                journey.</p>
+        </header>
+
+        <div class="row g-5">
+            <div class="col-lg-7 d-flex flex-column gap-5">
+                <section class="bg-surface-low rounded-4 p-4 p-md-5 shadow-sm border border-light border-2">
+                    <h2 class="h3 fw-bold mb-5 text-dark">Your Basket</h2>
+                    <div id="checkoutItemsList">
+                        <p class="text-muted">Loading...</p>
+                    </div>
+                </section>
+
+                <section class="bg-surface-low rounded-4 p-4 p-md-5 shadow-sm border border-light border-2 d-flex flex-column gap-5">
+                    <div>
+                        <h2 class="h4 fw-bold mb-4 d-flex align-items-center gap-3 text-dark">
+                            <span class="bg-primary-custom text-white rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center fw-bold" style="width: 32px; height: 32px; font-size: 0.9rem;">1</span>
+                            Shipping Information
+                        </h2>
+                        <div class="row g-4">
+                            <div class="col-md-6"><input type="text" class="form-control form-control-lg border-0 shadow-sm" placeholder="Full Name"></div>
+                            <div class="col-md-6"><input type="email" class="form-control form-control-lg border-0 shadow-sm" placeholder="Email"></div>
+                            <div class="col-12"><input type="text" class="form-control form-control-lg border-0 shadow-sm" placeholder="Street Address"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="h4 fw-bold mb-4 d-flex align-items-center gap-3 text-dark">
+                            <span class="bg-primary-custom text-white rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center fw-bold" style="width: 32px; height: 32px; font-size: 0.9rem;">2</span>
+                            Payment Details
+                        </h2>
+                        <div class="row g-4">
+                            <div class="col-12"><input type="text" class="form-control form-control-lg border-0 shadow-sm" placeholder="Card Number"></div>
+                            <div class="col-md-6"><input type="text" class="form-control form-control-lg border-0 shadow-sm" placeholder="MM / YY"></div>
+                            <div class="col-md-6"><input type="password" class="form-control form-control-lg border-0 shadow-sm" placeholder="CVV"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="col-lg-5">
+                <div class="sticky-top" style="top: 100px;">
+                    <div class="card border-0 bg-white rounded-4 p-4 p-md-5 shadow mb-4 editorial-shadow border border-light">
+                        <h2 class="h3 fw-bold mb-5 text-dark">Order Summary</h2>
+                        <div class="d-flex flex-column gap-3 mb-4">
+                            <div class="d-flex justify-content-between text-muted fw-bold"><span>Subtotal</span><span class="text-dark" id="summarySubtotal">₹0</span></div>
+                            <div class="d-flex justify-content-between text-muted fw-bold"><span>Shipping</span><span class="text-success">Free</span></div>
+                            <div class="d-flex justify-content-between text-muted fw-bold"><span>Taxes (5%)</span><span class="text-dark" id="summaryTax">₹0</span></div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-end pt-4 border-top border-light border-2 mb-4">
+                            <span class="fs-4 fw-bold text-dark">Total</span>
+                            <div class="text-end">
+                                <span class="display-6 fw-bold text-primary-custom d-block mb-1" id="summaryTotal">₹0</span>
+                                <span class="small text-muted fw-bold">INR Includes GST</span>
+                            </div>
+                        </div>
+                        <button id="placeOrderBtn" class="btn btn-primary-custom w-100 rounded-pill py-3 fw-bold fs-5 shadow-sm text-uppercase mb-4">Place Order</button>
+                        <p class="small text-muted text-center mb-0">By placing order, you agree to our Terms.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer-custom pt-5 pb-4 mt-auto">
+        <!-- Footer content remains same -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

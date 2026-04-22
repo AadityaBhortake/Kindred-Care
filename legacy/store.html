@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care - Store</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md fixed-top custom-nav shadow-sm">
+        <div class="container-fluid max-w-custom">
+            <a class="navbar-brand brand-text" href="index.html">Kindred Care</a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center flex-grow-1" id="navbarContent">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active-link" href="store.html">Store</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                </ul>
+            </div>
+
+            <!-- Auth nav — toggled by JS -->
+            <div class="d-flex align-items-center gap-3 d-none d-md-flex" id="navAuth">
+
+              <!-- Logged OUT -->
+              <div id="navGuest" style="display:flex;align-items:center;gap:12px">
+                <a href="/login.html"
+                   class="btn btn-sm fw-semibold text-primary-custom text-decoration-none"
+                   style="font-family:'Plus Jakarta Sans',sans-serif">Sign In</a>
+                <a href="/register.html"
+                   class="btn btn-sm btn-primary-custom rounded-pill px-3 py-2 fw-bold"
+                   style="font-family:'Plus Jakarta Sans',sans-serif">Get Started</a>
+              </div>
+
+              <!-- Logged IN -->
+              <div id="navUser" style="display:none;align-items:center;gap:12px">
+                <a href="checkout.html"
+                    class="btn icon-btn rounded-circle d-flex align-items-center justify-content-center position-relative text-decoration-none hover-bg-surface">
+                    <span class="material-symbols-outlined text-primary-custom">shopping_cart</span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCountBadge"
+                        style="font-size: 0.6rem;">0</span>
+                </a>
+                <div class="ps-3 ms-1 border-start d-flex align-items-center gap-2">
+                  <div style="width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.875rem;font-family:'Plus Jakarta Sans',sans-serif" id="navAvatar">U</div>
+                  <div style="line-height:1.2">
+                    <div style="font-size:.82rem;font-weight:700;color:var(--on-surface)" id="navUserName">User</div>
+                    <div class="d-flex gap-2">
+                        <a href="profile.html" style="text-decoration:none;font-size:.72rem;color:var(--primary);font-weight:600;cursor:pointer">Settings</a>
+                        <button onclick="logout()" style="background:none;border:none;padding:0;font-size:.72rem;color:var(--danger);font-weight:600;cursor:pointer">Sign out</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container-fluid max-w-custom pt-custom pb-5">
+
+        <!-- Large Centered Search Bar -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8">
+                <div class="position-relative shadow-sm rounded-pill">
+                    <span
+                        class="material-symbols-outlined position-absolute top-50 start-0 translate-middle-y ms-4 text-primary-custom">search</span>
+                    <input type="text"
+                        class="form-control form-control-lg rounded-pill ps-5 pe-5 border-0 bg-surface-low shadow-sm py-3"
+                        placeholder="Search for premium pet health products...">
+                    <button
+                        class="btn btn-primary-custom rounded-pill position-absolute top-50 end-0 translate-middle-y me-2 px-4 fw-bold text-uppercase"
+                        style="font-size:0.8rem; letter-spacing: 1px;">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <!-- Sidebar Filters -->
+            <aside class="col-lg-3">
+                <div class="sticky-top" style="top: 100px;">
+
+                    <section class="mb-5">
+                        <h3 class="h5 fw-bold text-primary-custom mb-4">Categories</h3>
+                        <ul class="list-unstyled d-flex flex-column gap-3">
+                            <li><a href="#"
+                                    class="text-decoration-none text-muted fw-bold d-flex align-items-center gap-2 hover-primary"><span
+                                        class="bg-primary-custom rounded-pill opacity-0"
+                                        style="width: 4px; height: 18px;"></span> All Supplies</a></li>
+                            <li><a href="#"
+                                    class="text-decoration-none text-muted fw-bold d-flex align-items-center gap-2 hover-primary"><span
+                                        class="bg-primary-custom rounded-pill opacity-0"
+                                        style="width: 4px; height: 18px;"></span> Food</a></li>
+                            <li><a href="#"
+                                    class="text-decoration-none text-muted fw-bold d-flex align-items-center gap-2 hover-primary"><span
+                                        class="bg-primary-custom rounded-pill opacity-0"
+                                        style="width: 4px; height: 18px;"></span> Accessories</a></li>
+                            <li><a href="#"
+                                    class="text-decoration-none text-primary-custom fw-bold d-flex align-items-center gap-2"><span
+                                        class="bg-primary-custom rounded-pill" style="width: 4px; height: 18px;"></span>
+                                    Medicines</a></li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-5">
+                        <h3 class="h5 fw-bold text-primary-custom mb-4">Shop by Pet</h3>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button
+                                    class="btn bg-surface-low w-100 py-3 rounded-3 d-flex flex-column align-items-center gap-2 hover-secondary-bg">
+                                    <span class="material-symbols-outlined text-secondary-custom">pets</span>
+                                    <span class="small fw-bold text-uppercase text-muted"
+                                        style="letter-spacing: 1px;">Dog</span>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button
+                                    class="btn bg-surface-low w-100 py-3 rounded-3 d-flex flex-column align-items-center gap-2 hover-secondary-bg">
+                                    <span class="material-symbols-outlined text-secondary-custom">auto_awesome</span>
+                                    <span class="small fw-bold text-uppercase text-muted"
+                                        style="letter-spacing: 1px;">Cat</span>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button
+                                    class="btn bg-surface-low w-100 py-3 rounded-3 d-flex flex-column align-items-center gap-2 hover-secondary-bg">
+                                    <span class="material-symbols-outlined text-secondary-custom">pets</span>
+                                    <span class="small fw-bold text-uppercase text-muted"
+                                        style="letter-spacing: 1px;">Small</span>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button
+                                    class="btn bg-surface-low w-100 py-3 rounded-3 d-flex flex-column align-items-center gap-2 hover-secondary-bg">
+                                    <span class="material-symbols-outlined text-secondary-custom">water_drop</span>
+                                    <span class="small fw-bold text-uppercase text-muted"
+                                        style="letter-spacing: 1px;">Fish</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                </div>
+            </aside>
+
+            <!-- Main Product Grid -->
+            <section class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-end mb-4">
+                    <div>
+                        <h1 class="display-6 fw-bold mb-2">The Apothecary</h1>
+                        <p class="text-muted mb-0">Curated health & wellness essentials for your companion.</p>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-muted small">
+                        <span>Sort by: <strong class="text-dark">Newest First</strong></span>
+                        <span class="material-symbols-outlined text-primary-custom" style="cursor:pointer;">tune</span>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-5" id="storeProductGrid">
+                    <!-- Products will be loaded here by main.js -->
+                    <div class="col-12 text-center py-5">
+                        <div class="spinner-border text-primary-custom" role="status"></div>
+                        <p class="mt-3 text-muted">Loading premium products...</p>
+                    </div>
+                </div></div>
+
+                <!-- Pagination -->
+                <nav class="d-flex justify-content-center mt-5">
+                    <ul class="pagination gap-2 border-0">
+                        <li class="page-item">
+                            <a class="page-link rounded-circle border-0 text-primary-custom bg-surface-low d-flex align-items-center justify-content-center p-2"
+                                href="#" style="width: 48px; height: 48px;"><span
+                                    class="material-symbols-outlined">chevron_left</span></a>
+                        </li>
+                        <li class="page-item"><a
+                                class="page-link rounded-circle border-0 text-white bg-primary-custom fw-bold d-flex align-items-center justify-content-center"
+                                href="#" style="width: 48px; height: 48px;">1</a></li>
+                        <li class="page-item"><a
+                                class="page-link rounded-circle border-0 text-dark bg-surface-low fw-bold d-flex align-items-center justify-content-center"
+                                href="#" style="width: 48px; height: 48px;">2</a></li>
+                        <li class="page-item"><a
+                                class="page-link rounded-circle border-0 text-dark bg-surface-low fw-bold d-flex align-items-center justify-content-center"
+                                href="#" style="width: 48px; height: 48px;">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link rounded-circle border-0 text-primary-custom bg-surface-low d-flex align-items-center justify-content-center p-2"
+                                href="#" style="width: 48px; height: 48px;"><span
+                                    class="material-symbols-outlined">chevron_right</span></a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-custom pt-5 pb-4 mt-auto">
+        <div class="container-fluid max-w-custom">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
+                <div class="h4 fw-bold text-primary-custom mb-0">Kindred Care</div>
+                <ul class="list-inline mb-0 d-flex flex-wrap justify-content-center gap-3 gap-md-4">
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none footer-link">Privacy
+                            Policy</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-muted text-decoration-none footer-link">Terms
+                            of Service</a></li>
+                    <li class="list-inline-item"><a href="#"
+                            class="text-muted text-decoration-none footer-link">Contact</a></li>
+                    <li class="list-inline-item"><a href="#"
+                            class="text-muted text-decoration-none footer-link">Instagram</a></li>
+                    <li class="list-inline-item"><a href="#"
+                            class="text-muted text-decoration-none footer-link">Support</a></li>
+                </ul>
+                <div class="text-muted small opacity-75 text-center text-md-end">
+                    &copy; 2024 Kindred Care Pet Center.<br>Every pet is a story.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
