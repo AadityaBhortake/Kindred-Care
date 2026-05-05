@@ -3,9 +3,9 @@ const { MongoClient, ObjectId } = require('mongodb');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017';
+const MONGO_URI = process.env.MONGO_URI;
 const DB_NAME = process.env.DB_NAME || 'pet_care';
-const JWT_SECRET = process.env.JWT_SECRET || 'petcare_secret';
+const JWT_SECRET = process.env.JWT_SECRET ;
 
 const client = new MongoClient(MONGO_URI);
 let dbConnected = false;
@@ -229,42 +229,42 @@ const SEED_PRODUCTS = [
     description: 'Ancient Grains & Organic Chicken • 5kg',
     price: 3360,
     category: 'Food',
-    image: 'https://images.unsplash.com/photo-1589924691995-400dc9a36abb?w=400'
+    image: 'https://www.thinkjinx.com/cdn/shop/files/4__Puppy_2200x2200_1_5f0ce7a3-69f2-408d-9cd9-e488d993af6f.jpg?v=1720833907&width=3000'
   },
   {
     name: 'Royal Canine Feast',
     description: 'Grain-Free Lamb & Sweet Potato • 3kg',
     price: 2799,
     category: 'Food',
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400'
+    image: 'https://www.loyalpetzone.com/wp-content/uploads/2016/06/royal-canin-german-shepherd-adult.jpg'
   },
   {
     name: 'Feline Delight Mix',
     description: 'Ocean Fish & Chicken Blend • 2kg',
     price: 1899,
     category: 'Food',
-    image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400'
+    image: 'https://www.bbassets.com/media/uploads/p/l/40338490_1-purrfeto-chicken-ocean-fish-adult-dry-cat-food.jpg'
   },
   {
     name: 'Adult Cat Ocean Fish',
     description: 'Wild-Caught Salmon & Brown Rice • 4kg',
     price: 2500,
     category: 'Food',
-    image: 'https://loremflickr.com/400/400/pet,food?lock=1'
+    image: 'https://www.whiskas.in/cdn-cgi/image/format=auto,q=90/sites/g/files/fnmzdf7971/files/2025-07/7670076-1-whiskas-amazonia-ocean-fish-flavour-480g-fop.png'
   },
   {
     name: 'Kitten Wellness Pate',
     description: 'Tender Chicken & Liver Recipe • 12 cans',
     price: 1450,
     category: 'Food',
-    image: 'https://loremflickr.com/400/400/pet,food?lock=2'
+    image: 'https://s7d2.scene7.com/is/image/PetSmart/5322795'
   },
   {
     name: 'Senior Dog Joint Diet',
     description: 'Low-Fat Turkey with Glucosamine • 3kg',
     price: 2900,
     category: 'Food',
-    image: 'https://loremflickr.com/400/400/pet,food?lock=3'
+    image: 'https://thepawsitivecompany.in/cdn/shop/files/HIP_JOINT_SMALL_69dd7789-2e46-4355-8228-de3ab2575442.png?v=1734143366&width=1200'
   },
 
   // ACCESSORIES
@@ -273,42 +273,42 @@ const SEED_PRODUCTS = [
     description: 'Orthopedic memory foam for all pets',
     price: 4500,
     category: 'Accessories',
-    image: 'https://loremflickr.com/400/400/pet,bed?lock=1'
+    image: 'https://m.media-amazon.com/images/I/41X2kEk+YpL._SS400_.jpg'
   },
   {
     name: 'Premium Leather Collar',
     description: 'Handcrafted genuine leather with brass fittings',
     price: 1200,
     category: 'Accessories',
-    image: 'https://loremflickr.com/400/400/pet,collar?lock=1'
+    image: 'https://m.media-amazon.com/images/I/41pGXdik3jL._SY300_SX300_QL70_FMwebp_.jpg'
   },
   {
     name: 'Interactive Puzzle Toy',
     description: 'Mental stimulation for curious minds',
     price: 850,
     category: 'Accessories',
-    image: 'https://loremflickr.com/400/400/pet,toy?lock=1'
+    image: 'https://m.media-amazon.com/images/I/71M9w9M-FyL._SX522_.jpg'
   },
   {
     name: 'Auto-Refill Water Dispenser',
     description: 'Gravity-fed 2L capacity',
     price: 1400,
     category: 'Accessories',
-    image: 'https://loremflickr.com/400/400/pet,bowl?lock=1'
+    image: 'https://m.media-amazon.com/images/I/71Rjm9MgRzL._AC_UF1000,1000_QL80_.jpg'
   },
   {
     name: 'Travel Carrier Bag',
     description: 'Airline approved, breathable mesh design',
     price: 3200,
     category: 'Accessories',
-    image: 'https://loremflickr.com/400/400/pet,carrier?lock=1'
+    image: 'https://m.media-amazon.com/images/I/41qvQDIFc4L._SY300_SX300_QL70_FMwebp_.jpg'
   },
   {
     name: 'Durable Chew Ring',
     description: 'Tough rubber toy for aggressive chewers',
     price: 600,
     category: 'Accessories',
-    image: 'https://loremflickr.com/400/400/dog,toy?lock=2'
+    image: 'https://m.media-amazon.com/images/I/41-bJiw5nsL._SY300_SX300_QL70_FMwebp_.jpg'
   },
 
   // HEALTH
@@ -317,7 +317,7 @@ const SEED_PRODUCTS = [
     description: 'Multi-Vitamin Chews for All Breeds • 60 pcs',
     price: 1299,
     category: 'Health',
-    image: 'https://images.unsplash.com/photo-1582797493098-23d8d0cc6769?w=400'
+    image: 'https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/vet/vet03687/v/32.jpg'
   },
   {
     name: 'ZenBites Calming Chews',
@@ -338,21 +338,21 @@ const SEED_PRODUCTS = [
     description: 'Helps fight plaque and tartar • 500ml',
     price: 1100,
     category: 'Health',
-    image: 'https://loremflickr.com/400/400/pet,health?lock=1'
+    image: 'https://m.media-amazon.com/images/I/51sENLGzEcL._SY300_SX300_QL70_FMwebp_.jpg'
   },
   {
     name: 'Flea & Tick Prevention',
     description: 'Once a month topical treatment',
     price: 2150,
     category: 'Health',
-    image: 'https://loremflickr.com/400/400/pet,health?lock=2'
+    image: 'https://vetsbest.com/cdn/shop/files/fleatickhomespraypeppermint1.png?v=1723151617&width=1100'
   },
   {
     name: 'Soothing Paw Balm',
     description: 'Moisturizes rough and cracked paw pads',
     price: 950,
     category: 'Health',
-    image: 'https://loremflickr.com/400/400/pet,health?lock=3'
+    image: 'https://m.media-amazon.com/images/I/61VK7uoQd3L._AC_UF1000,1000_QL80_.jpg'
   }
 ];
 
