@@ -250,11 +250,6 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-## 📄 License
-
-Distributed under the **ISC License**. See [`LICENSE`](LICENSE) for more information.
-
----
 
 <div align="center">
 Made with ❤️ for pet lovers everywhere 🐶🐱
