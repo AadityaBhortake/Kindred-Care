@@ -250,7 +250,3 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-
-<div align="center">
-Made with ❤️ for pet lovers everywhere 🐶🐱
-</div>
